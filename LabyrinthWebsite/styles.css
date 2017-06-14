@@ -18,3 +18,9 @@ border: 1px solid black;
     left: 500px;
     padding:15px;
 }
+.picture1 {
+float: left;
+margin: 120px;
+position: relative;
+left: 80px;
+}
