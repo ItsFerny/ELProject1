@@ -59,10 +59,11 @@ for(var i = 0; i < this.cars.length; i++) {
 }
 }
 
-var car1 = new Car("Fast", 3);
+var car1 = new Car("GottaGoFast", 3);
 var car2 = new Car("SlowNSteady", 1);
+var car3 = new Car("EnviroDestroyo", 8);
 
-var carArray = [car1, car2];
+var carArray = [car1, car2, car3];
 var race = new RaceSim(carArray);
 
 race.simulate();
