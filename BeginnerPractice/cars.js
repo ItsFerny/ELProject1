@@ -32,8 +32,10 @@ class RaceSim {
       if(c.fuel > 0) {
         c.accelerate();
         c.move();
+        console.log(c.name + " moved to: " + c.position);
       } else {
       c.stop();
+      console.log(c.name + " ran out of fuel :c");
       }
     }
   }
@@ -59,8 +61,8 @@ for(var i = 0; i < this.cars.length; i++) {
 }
 }
 
-var car1 = new Car("GottaGoFast", 3);
-var car2 = new Car("SlowNSteady", 1);
+var car1 = new Car("GottaGoFast", 5);
+var car2 = new Car("SlowNSteady", 3);
 var car3 = new Car("EnviroDestroyo", 8);
 
 var carArray = [car1, car2, car3];
