@@ -26,16 +26,22 @@ var images = [
   "img/xcom2.jpg",
 ];
 
+var update = function() {
+  removeImages();
+  showImages();
+}
 var pageBack = function() {
   if(page > 0) {
     page -=1;
   }
+  update();
 }
 
 var pageForward = function() {
   if(page < (images.length / 8)) {
     page +=1;
   }
+  update();
 }
 
 var showImages = function() {
