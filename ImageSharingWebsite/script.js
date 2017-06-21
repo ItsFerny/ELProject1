@@ -40,7 +40,12 @@ var pageForward = function() {
 
 var showImages = function() {
   var element = document.getElementById("images");
-  for(var i = 0; i <images.length; i++) {
+  var start = page * 8;
+  var end = start + 8;
+  if(end >= images.length) {
+    end = images.length - 1;
+  }
+  for(var i = start; i < end; i++) {
     var path = images[i];
     var img = document.createElement("img");
     img.src = path;
