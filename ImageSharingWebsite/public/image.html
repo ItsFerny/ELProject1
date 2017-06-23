@@ -1,0 +1,24 @@
+<html>
+    <head>
+      <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+      <div style="width:100%">
+        <div id="center">
+        <h1>Image Website</h1>
+      </div>
+      </div>
+      <button onclick="pageBack1()">&lt;-- Back</button>
+      <button onclick="pageNext()" style="float: right;">Next --&gt;</button>
+      <div style="width:100%">
+        <div id="image">
+        </div>
+      </div>
+      <script src = "script.js"></script>
+      <script>
+        window.onload = function() {
+          setImage(getParameterByName('image'));
+        }
+      </script>
+    </body>
+  </html>
