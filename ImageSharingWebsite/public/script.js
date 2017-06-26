@@ -34,6 +34,31 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+
+
+var increase = function() {
+httpGetAsyc('/api/increase', callbackFunc);
+}
+
+var decrease = function() {
+httpGetAsyc('/api/increase', callbackFunc);
+}
+
+function callbackFunc(res) {
+  console.log(res);
+}
+
+function httpGetAsync(theUrl, callback)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() {
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous
+    xmlHttp.send(null);
+}
+
 var update = function() {
   removeImages();
   showImages();

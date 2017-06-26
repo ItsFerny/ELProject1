@@ -13,7 +13,7 @@ const server = new Hapi.Server({
     }
   }
 });
-server.connection({ port: 3000, host: 'localhost' });
+server.connection({ port: 3000, host: "0.0.0.0" });
 
 server.register(require('inert'), (err) => {
 
@@ -30,6 +30,24 @@ server.register(require('inert'), (err) => {
           redirectToSlash: true,
           index: true
         }
+      }
+    });
+    var counter = 0;
+    server.route({
+      method: 'GET',
+      path: '/api/increase',
+      handler: function(request, reply) {
+        counter++
+        reply({ counter });
+      }
+    });
+
+    server.route({
+      method: 'GET',
+      path: '/api/decrease',
+      handler: function(request, reply) {
+        counter--
+        reply({ counter });      
       }
     });
 });
