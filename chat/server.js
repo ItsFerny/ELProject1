@@ -40,12 +40,17 @@ io.on('connection', function(socket) {
     var str = JSON.stringify({
       msg: message,
       time: new Date().getTime(),
-      name: 'Dylan' + numConnected,
+      name: socket.name,
     });
     console.log('new message', str);
     socket.emit('message', str);
     socket.broadcast.emit('message', str);
-  })
+  });
+
+socket.on('io:name', function(name) {
+  socket.name = name;
+})
+
 });
 
 

@@ -18,6 +18,20 @@ function getTime(timestamp) {
   return String(h) + ':' + m + ':' + s;
 }
 
+function getName() {
+
+  name = window.prompt('Whats yo name man?');
+  socket.emit('io:name', name);
+
+  $('#m').focus();
+  return name;
+}
+
+window.onload = function() {
+  getName();
+  console.log('loaded');
+}
+
 $('form').submit(function() {
   var msg = $('#m').val();
   console.log('emitting msg: ', msg);
@@ -50,6 +64,4 @@ socket.on('message', function(msg) {
   console.log('>> ' + msg);
 renderMessage(msg);
 });
-
-
 });

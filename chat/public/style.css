@@ -41,10 +41,13 @@ form {
     font-size: 1em;
     /*height: 2px;*/
     height: 2em;
-    min-width: 70%;
     flex: 1;
     padding:0.5em;
     margin-right: .5%;
+  }
+
+  form input #name {
+    width: 15%
   }
 
   form button {
