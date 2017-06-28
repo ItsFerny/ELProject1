@@ -29,7 +29,18 @@ handler: {
   }
 });
 
+var messages = [];
+
+server.route({
+  method: 'GET',
+  path: '/loadMessages',
+  handler: function(request, reply) {
+    reply(messages);
+  }
+});
 var io = require("socket.io")(server.listener);
+
+
 var numConnected = 0;
 io.on('connection', function(socket) {
   numConnected++;
@@ -43,6 +54,7 @@ io.on('connection', function(socket) {
       name: socket.name,
     });
     console.log('new message', str);
+    messages.push(str);
     socket.emit('message', str);
     socket.broadcast.emit('message', str);
   });

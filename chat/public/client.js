@@ -27,8 +27,29 @@ function getName() {
   return name;
 }
 
+function loadMessages() {
+httpGetAsync('/loadMessages', function(messages) {
+  messages = JSON.parse(messages);
+  for(var i = 0; i < messages.length; i++) {
+    renderMessage(messages[i])
+  }
+});
+}
+
+function httpGetAsync(theUrl, callback) {
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.onreadystatechange = function() {
+    if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+    callback(xmlHttp.responseText);
+  }
+  xmlHttp.open("GET", theUrl, true);
+  xmlHttp.send(null);
+}
+
+
 window.onload = function() {
   getName();
+  loadMessages();
   console.log('loaded');
 }
 
